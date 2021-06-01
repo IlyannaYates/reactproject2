@@ -1,25 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import profilePic from './img/profile-pic.jpg';
+import Bttns from './components/Bttns.js';
+import Like from './components/like-bttn.js';
+import Twitter from './components/twitter-bttn.js';
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+  const [skills, setSkills] = useState("Hi!")
+
+  const myName = () =>{
+    setSkills("my name is ilyanna")
+  }
+
+  const mySkill = () =>{
+    setSkills("front end development")
+  }
+
+return (
+  <div className="App">
+    <div className="box-1">
+      <div className="profile-pic">
+          <img src={profilePic} alt="my profile pic"/>
+      </div>
+      <Bttns tech ={skills}/>
+        <div className="buttons">
+          <button onClick={myName}>Name</button>
+          <button onClick={mySkill}>Skills</button>
+        </div>
+      <Like/>
+      <Twitter/>
+    </div>
+
+  </div>
+);
+}
+  
 export default App;
